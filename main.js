@@ -1,16 +1,14 @@
 let deck;
 function setup() {
-    createCanvas(400, 200);
+    createCanvas(windowWidth, windowHeight);
     var a = new Deck;
     deck = a;
     console.log(a);
 }
 
 function draw() {
-    let pile = deck.cards.slice(0,5);
-    console.log(pile);
-    for(i in pile) {
-        pile[i].show(i*70,0);
+    for(i in deck.cards) {
+        deck.cards[i].show(deck.cards[i].face*70, deck.cards[i].suit*110);
     }
     noLoop();
 }
