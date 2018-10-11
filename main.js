@@ -7,8 +7,11 @@ function setup() {
 }
 
 function draw() {
-    for(i in deck.cards) {
-        deck.cards[i].show(deck.cards[i].face*70, deck.cards[i].suit*110);
-    }
+
+    deck.shuffleDeck();
+    let player = new Hand(deck.cards.splice(0,2));
+    let bank = new Hand(deck.cards.splice(0,2));
+    player.showHand(10,10);
+    bank.showHand(windowWidth-150, 10);
     noLoop();
 }

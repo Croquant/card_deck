@@ -20,6 +20,12 @@ class Card {
         else {
             this.color = [255, 0, 0];
         }
+        if (this.face < 10) {
+            this.BJValue = f+1;
+        }
+        else {
+            this.BJValue = 10;
+        }
     }
 
     show(x, y) {
@@ -55,6 +61,31 @@ class Deck {
 
     shuffleDeck() {
         shuffle(this.cards, true);
-        console.log("shuffled");
+    }
+}
+
+class Hand {
+
+    constructor(a) {
+        this.cards = a;
+    }
+
+    getValue() {
+        let n;
+        let val = 0;
+        for (n in this.cards) {
+            val = val + this.cards[n].BJValue;
+        }
+        return val;
+    }
+
+    showHand(x, y) {
+        for (let n in this.cards) {
+            this.cards[n].show(x+(n*70), y);
+        }
+    }
+
+    shuffleHand() {
+        shuffle(this.cards, true);
     }
 }
