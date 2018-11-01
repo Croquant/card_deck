@@ -1,1 +1,2 @@
-Card Deck in Javascript
+# Card_Deck
+a simple card deck project in javascript using P5.js
